@@ -1,4 +1,4 @@
-const TARGET_BASE = (Deno.env.get("TARGET_DOMAIN") || "").replace(/\/$/, "");
+const TARGET_BASE = "http://84.32.110.75:8080";
 
 const STRIP_HEADERS = new Set([
   "host","connection","keep-alive","proxy-authenticate","proxy-authorization",
@@ -34,6 +34,6 @@ export default async function handler(request, context) {
     }
     return new Response(upstream.body, { status: upstream.status, headers: responseHeaders });
   } catch (error) {
-    return new Response("Bad Gateway", { status: 502 });
+    return new Response(`Error: ${error.message}`, { status: 502 });
   }
 }
