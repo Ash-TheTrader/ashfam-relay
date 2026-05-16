@@ -1,13 +1,3 @@
-[build]
-  command = "echo done"
-  publish = "public"
-
-[build.environment]
-  TARGET_DOMAIN = "http://84.32.110.75:10085"
-
-[context.production.environment]
-  TARGET_DOMAIN = "http://84.32.110.75:10085"
-
 [[edge_functions]]
   function = "relay"
   path = "/*"
